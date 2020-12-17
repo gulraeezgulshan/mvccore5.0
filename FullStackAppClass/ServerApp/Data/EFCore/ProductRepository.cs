@@ -75,7 +75,16 @@ namespace ServerApp.Data.EFCore
                 data.ForEach(p => {
                     if (p.Supplier != null)
                     {
-                        p.Supplier.Products = null;
+                        p.Supplier.Products = p.Supplier.Products.Select(p =>
+
+                        new Product
+                        {
+                            Id = p.Id,
+                            Name = p.Name,
+                            Category = p.Category,
+                            Description = p.Description,
+                            Price = p.Price,
+                        });
                     }
                     if (p.Ratings != null)
                     {

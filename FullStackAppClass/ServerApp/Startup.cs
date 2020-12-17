@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 using ServerApp.Data.EFCore;
 using ServerApp.Models;
 
@@ -30,7 +31,14 @@ namespace ServerApp
             string connectionString = Configuration["ConnectionStrings:DefaultConnection"];
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));
 
-            services.AddControllers();
+            services.AddControllersWithViews();
+
+            services.AddRazorPages();
+
+            services.AddSwaggerGen(options => {
+                options.SwaggerDoc("v1",
+                new OpenApiInfo { Title = "FullStackApp API", Version = "v1" });
+            });
 
             services.AddScoped<ProductRepository>();
             services.AddScoped<SupplierRepository>();
@@ -62,6 +70,11 @@ namespace ServerApp
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+            });
+
+            app.UseSwagger();
+            app.UseSwaggerUI(options => {
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", "FullStackApp API");
             });
 
             app.UseSpa(spa => {
