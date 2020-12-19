@@ -1,4 +1,5 @@
 ﻿using ServerApp.Models;
+using ServerApp.Models.EFCore;
 
 namespace ServerApp.Data.EFCore
 {

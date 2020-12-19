@@ -82,7 +82,7 @@ namespace ServerApp
                 .GetValue<string>("DevTools:ConnectionStrategy");
                 if (strategy == "proxy")
                 {
-                    spa.UseProxyToSpaDevelopmentServer("http://127.0.0.1:4200");
+                    spa.UseProxyToSpaDevelopmentServer("http://127.0.0.1:1388");
                 }
                 else if (strategy == "managed")
                 {

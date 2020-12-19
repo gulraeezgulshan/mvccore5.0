@@ -1,14 +1,35 @@
 <div class="p-2">
   <table class="table table-sm">
-    <tr><th>Name</th><td>{{product?.name}}</td></tr>
-    <tr><th>Category</th><td>{{product?.category}}</td></tr>
-    <tr><th>Description</th><td>{{product?.description}}</td></tr>
-    <tr><th>Price</th><td>{{product?.price}}</td></tr>
-    <tr><th>Supplier</th><td>{{product?.supplier?.name}}</td></tr>
-    <tr><th>Total Products of Supplier</th><td>{{product?.supplier?.products?.length}}</td></tr>
-    <tr><th>Total Ratings</th><td>{{product?.ratings?.length}}</td></tr>
+    <tr>
+      <th>Name</th>
+      <td>{{product.name}}</td>
+    </tr>
+    <tr>
+      <th>Category</th>
+      <td>{{product.category}}</td>
+    </tr>
+    <tr>
+      <th>Description</th>
+      <td>{{product.description}}</td>
+    </tr>
+    <tr>
+      <th>Price</th>
+      <td>{{product.price}}</td>
+    </tr>
+    <tr>
+      <th>Supplier</th>
+      <td>{{product.supplier.name}}</td>
+    </tr>
+    <tr>
+      <th>Total Products of Supplier</th>
+      <td> {{ product.supplier.products.length }}</td>
+    </tr>
+
+    <tr><th> Total Stars </th><td>{{product.ratings.length}}</td></tr>
   </table>
+
   <ul *ngFor="let item of product.ratings">
     <li>{{item.stars}}</li>
   </ul>
 </div>
+

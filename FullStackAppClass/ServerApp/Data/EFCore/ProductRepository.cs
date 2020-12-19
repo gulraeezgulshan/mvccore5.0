@@ -18,6 +18,7 @@ namespace ServerApp.Data.EFCore
 
         public async Task<Product> GetRelated(long id)
         {
+          
             Product result = await _context.Products
                 .Include(p => p.Supplier).ThenInclude(s=> s.Products)
                 .Include(p => p.Ratings)

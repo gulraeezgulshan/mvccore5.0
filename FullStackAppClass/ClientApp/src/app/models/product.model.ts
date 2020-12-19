@@ -3,7 +3,6 @@ import { Rating } from "./rating.model";
 
 export class Product {
 
-
   constructor(
     public productId?: number,
     public name?: string,
