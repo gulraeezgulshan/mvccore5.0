@@ -1,0 +1,140 @@
+{
+  "format": 1,
+  "restore": {
+    "F:\\lectures\\mvccore5.0\\FullStackAppClass2\\ServerApp\\ServerApp.Repositories\\ServerApp.Repositories.csproj": {}
+  },
+  "projects": {
+    "F:\\lectures\\mvccore5.0\\FullStackAppClass2\\ServerApp\\ServerApp.Models\\ServerApp.Models.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\lectures\\mvccore5.0\\FullStackAppClass2\\ServerApp\\ServerApp.Models\\ServerApp.Models.csproj",
+        "projectName": "ServerApp.Models",
+        "projectPath": "F:\\lectures\\mvccore5.0\\FullStackAppClass2\\ServerApp\\ServerApp.Models\\ServerApp.Models.csproj",
+        "packagesPath": "C:\\Users\\Gulraiz\\.nuget\\packages\\",
+        "outputPath": "F:\\lectures\\mvccore5.0\\FullStackAppClass2\\ServerApp\\ServerApp.Models\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Gulraiz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "F:\\lectures\\mvccore5.0\\FullStackAppClass2\\ServerApp\\ServerApp.Repositories\\ServerApp.Repositories.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\lectures\\mvccore5.0\\FullStackAppClass2\\ServerApp\\ServerApp.Repositories\\ServerApp.Repositories.csproj",
+        "projectName": "ServerApp.Repositories",
+        "projectPath": "F:\\lectures\\mvccore5.0\\FullStackAppClass2\\ServerApp\\ServerApp.Repositories\\ServerApp.Repositories.csproj",
+        "packagesPath": "C:\\Users\\Gulraiz\\.nuget\\packages\\",
+        "outputPath": "F:\\lectures\\mvccore5.0\\FullStackAppClass2\\ServerApp\\ServerApp.Repositories\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Gulraiz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "F:\\lectures\\mvccore5.0\\FullStackAppClass2\\ServerApp\\ServerApp.Models\\ServerApp.Models.csproj": {
+                "projectPath": "F:\\lectures\\mvccore5.0\\FullStackAppClass2\\ServerApp\\ServerApp.Models\\ServerApp.Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.AspNetCore.Mvc.Core": {
+              "target": "Package",
+              "version": "[2.2.5, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

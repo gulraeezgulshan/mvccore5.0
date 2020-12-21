@@ -1,0 +1,12 @@
+F:\lectures\mvccore5.0\FullStackAppClass2\ServerApp\ServerApp.Repositories\obj\Debug\netcoreapp3.1\ServerApp.Repositories.csprojAssemblyReference.cache
+F:\lectures\mvccore5.0\FullStackAppClass2\ServerApp\ServerApp.Repositories\obj\Debug\netcoreapp3.1\ServerApp.Repositories.AssemblyInfoInputs.cache
+F:\lectures\mvccore5.0\FullStackAppClass2\ServerApp\ServerApp.Repositories\obj\Debug\netcoreapp3.1\ServerApp.Repositories.AssemblyInfo.cs
+F:\lectures\mvccore5.0\FullStackAppClass2\ServerApp\ServerApp.Repositories\obj\Debug\netcoreapp3.1\ServerApp.Repositories.csproj.CoreCompileInputs.cache
+F:\lectures\mvccore5.0\FullStackAppClass2\ServerApp\ServerApp.Repositories\bin\Debug\netcoreapp3.1\ServerApp.Repositories.deps.json
+F:\lectures\mvccore5.0\FullStackAppClass2\ServerApp\ServerApp.Repositories\bin\Debug\netcoreapp3.1\ServerApp.Repositories.dll
+F:\lectures\mvccore5.0\FullStackAppClass2\ServerApp\ServerApp.Repositories\bin\Debug\netcoreapp3.1\ServerApp.Repositories.pdb
+F:\lectures\mvccore5.0\FullStackAppClass2\ServerApp\ServerApp.Repositories\bin\Debug\netcoreapp3.1\ServerApp.Models.dll
+F:\lectures\mvccore5.0\FullStackAppClass2\ServerApp\ServerApp.Repositories\bin\Debug\netcoreapp3.1\ServerApp.Models.pdb
+F:\lectures\mvccore5.0\FullStackAppClass2\ServerApp\ServerApp.Repositories\obj\Debug\netcoreapp3.1\ServerApp.Repositories.csproj.CopyComplete
+F:\lectures\mvccore5.0\FullStackAppClass2\ServerApp\ServerApp.Repositories\obj\Debug\netcoreapp3.1\ServerApp.Repositories.dll
+F:\lectures\mvccore5.0\FullStackAppClass2\ServerApp\ServerApp.Repositories\obj\Debug\netcoreapp3.1\ServerApp.Repositories.pdb
