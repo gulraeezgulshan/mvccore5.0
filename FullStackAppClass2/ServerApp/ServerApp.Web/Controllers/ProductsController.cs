@@ -28,9 +28,10 @@ namespace ServerApp.Controllers
         }
 
         [HttpGet("rel")]
-        public async Task<ActionResult<IEnumerable<Product>>> GetAllRelated (bool related)
+        public async Task<ActionResult<IEnumerable<Product>>> GetProducts(string category, string search,
+            bool related = false)
         {
-            return await _repository.GetAllRelated(related);
+            return await _repository.GetWithRelated(category, search, related);
         }
 
     }

@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerApp.Web", "ServerApp.Web\ServerApp.Web.csproj", "{37B74469-AED8-4ACD-97BF-94F760A97E32}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServerApp.Web", "ServerApp.Web\ServerApp.Web.csproj", "{37B74469-AED8-4ACD-97BF-94F760A97E32}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerApp.Models", "ServerApp.Models\ServerApp.Models.csproj", "{72350E1A-6DBF-42D3-B992-5CA52EE565DA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServerApp.Models", "ServerApp.Models\ServerApp.Models.csproj", "{72350E1A-6DBF-42D3-B992-5CA52EE565DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerApp.Repositories", "ServerApp.Repositories\ServerApp.Repositories.csproj", "{F31044FB-D136-4D79-91D8-D07320D1B47C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServerApp.Repositories", "ServerApp.Repositories\ServerApp.Repositories.csproj", "{F31044FB-D136-4D79-91D8-D07320D1B47C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

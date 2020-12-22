@@ -1,0 +1,18 @@
+<table class="table table-sm">
+  <tr>
+    <th>Name</th>
+    <th>Category</th>
+    <th>Description</th>
+    <th>Price</th>
+    <th>Supplier</th>
+    <th>Ratings</th>
+  </tr>
+  <tr *ngFor="let p of products">
+    <td>{{p.name}}</td>
+    <td>{{p.category}}</td>
+    <td>{{p.description}}</td>
+    <td>{{p.price}}</td>
+    <td>{{p.supplier?.name || "Not loaded.."}}</td>
+    <td>{{p.ratings.length}}</td>
+  </tr>
+</table>

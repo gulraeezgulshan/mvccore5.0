@@ -50,26 +50,30 @@ namespace ServerApp.Data.EFCore
             return result;
         }
 
-        public async Task<List<Product>> GetAllRelated(bool related = false)
+        public async Task<List<Product>> GetWithRelated(string category, string search, bool related = false)
         {
             IQueryable<Product> query = _context.Products;
+            if (!string.IsNullOrWhiteSpace(category))
+            {
+                string catLower = category.ToLower();
+                query = query.Where(p => p.Category.ToLower().Contains(catLower));
+            }
+            if (!string.IsNullOrWhiteSpace(search))
+            {
+                string searchLower = search.ToLower();
+                query = query.Where(p => p.Name.ToLower().Contains(searchLower)
+                || p.Description.ToLower().Contains(searchLower));
+            }
+
             if (related)
             {
                 query = query.Include(p => p.Supplier).Include(p => p.Ratings);
                 List<Product> data = await query.ToListAsync();
-                data.ForEach(p => {
+                data.ForEach(p =>
+                {
                     if (p.Supplier != null)
                     {
-                        p.Supplier.Products = p.Supplier.Products.Select(p =>
-
-                        new Product
-                        {
-                            Id = p.Id,
-                            Name = p.Name,
-                            Category = p.Category,
-                            Description = p.Description,
-                            Price = p.Price,
-                        });
+                        p.Supplier.Products = null;
                     }
                     if (p.Ratings != null)
                     {
@@ -82,6 +86,7 @@ namespace ServerApp.Data.EFCore
             {
                 return await query.ToListAsync();
             }
+
         }
     }
 }

@@ -1,4 +1,4 @@
-import { Product } from './product.model';
+import { Product } from '../product/product.model';
 
 export class Rating {
   constructor(
