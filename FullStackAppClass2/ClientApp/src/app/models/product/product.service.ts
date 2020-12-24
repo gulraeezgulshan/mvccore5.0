@@ -8,9 +8,9 @@ import { environment } from "src/environments/environment";
 export class ProductRepository {
 
   // Product product = new Product();
-  product: Product;
-  productList: Product[];
-  productListAll: Product[];
+  product: Product = new Product();
+  productList: Product[] = [];
+  productListAll: Product[] = [];
 
   constructor(private http: HttpClient) {
 
@@ -19,7 +19,7 @@ export class ProductRepository {
     this.getAllProducts();
   }
 
-  getProduct(id: number) {
+  getProduct(id: Number) {
 
     this.http.get<Product>(environment.apiURL + '/products/rel/' + id)
       .subscribe(p => this.product = p);
@@ -32,4 +32,14 @@ export class ProductRepository {
   getProducts(rel, cat) {
     this.http.get<Product>(environment.apiURL + '/products/rel?related=' + rel + '&category=' + cat).subscribe(p => this.productList = p as Product[]);
   }
+
+  postProduct(data: Product) {
+    this.http.post<Product>(environment.apiURL + '/products', data).subscribe(p => this.product = p);
+  }
+
+  delete(id: Number) {
+    this.http.delete<Product>(environment.apiURL + '/products/' + id).subscribe(p => this.product = p);
+  }
+
+
 }

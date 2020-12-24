@@ -1,9 +1,9 @@
-F:\lectures\mvccore5.0\FullStackAppClass2\ServerApp\ServerApp.Models\obj\Debug\netcoreapp3.1\ServerApp.Models.AssemblyInfoInputs.cache
-F:\lectures\mvccore5.0\FullStackAppClass2\ServerApp\ServerApp.Models\obj\Debug\netcoreapp3.1\ServerApp.Models.AssemblyInfo.cs
-F:\lectures\mvccore5.0\FullStackAppClass2\ServerApp\ServerApp.Models\obj\Debug\netcoreapp3.1\ServerApp.Models.csproj.CoreCompileInputs.cache
 F:\lectures\mvccore5.0\FullStackAppClass2\ServerApp\ServerApp.Models\bin\Debug\netcoreapp3.1\ServerApp.Models.deps.json
 F:\lectures\mvccore5.0\FullStackAppClass2\ServerApp\ServerApp.Models\bin\Debug\netcoreapp3.1\ServerApp.Models.dll
 F:\lectures\mvccore5.0\FullStackAppClass2\ServerApp\ServerApp.Models\bin\Debug\netcoreapp3.1\ServerApp.Models.pdb
+F:\lectures\mvccore5.0\FullStackAppClass2\ServerApp\ServerApp.Models\obj\Debug\netcoreapp3.1\ServerApp.Models.AssemblyInfoInputs.cache
+F:\lectures\mvccore5.0\FullStackAppClass2\ServerApp\ServerApp.Models\obj\Debug\netcoreapp3.1\ServerApp.Models.AssemblyInfo.cs
+F:\lectures\mvccore5.0\FullStackAppClass2\ServerApp\ServerApp.Models\obj\Debug\netcoreapp3.1\ServerApp.Models.csproj.CoreCompileInputs.cache
 F:\lectures\mvccore5.0\FullStackAppClass2\ServerApp\ServerApp.Models\obj\Debug\netcoreapp3.1\ServerApp.Models.dll
 F:\lectures\mvccore5.0\FullStackAppClass2\ServerApp\ServerApp.Models\obj\Debug\netcoreapp3.1\ServerApp.Models.pdb
 F:\lectures\mvccore5.0\FullStackAppClass2\ServerApp\ServerApp.Models\obj\Debug\netcoreapp3.1\ServerApp.Models.csprojAssemblyReference.cache

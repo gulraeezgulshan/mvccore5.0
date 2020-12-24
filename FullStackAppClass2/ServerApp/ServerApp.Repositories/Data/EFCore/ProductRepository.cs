@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ServerApp.Models.Models.BindingTargets;
 
 namespace ServerApp.Data.EFCore
 {
@@ -88,5 +89,6 @@ namespace ServerApp.Data.EFCore
             }
 
         }
+
     }
 }

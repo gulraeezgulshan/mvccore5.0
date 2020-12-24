@@ -11,11 +11,15 @@ export class ProductListComponent {
   constructor(private repo: ProductRepository) {
   }
 
-  get product() {
+  get product(): Product {
     return this.repo.product;
   }
 
-  get products() {
+  get products(): Product[] {
     return this.repo.productListAll;
+  }
+
+  deleteProduct(id: Number) {
+    this.repo.delete(id);
   }
 }

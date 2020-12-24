@@ -1,18 +1,41 @@
 <table class="table table-sm">
   <tr>
+    <th>#</th>
+    <td>Product Id:</td>
     <th>Name</th>
     <th>Category</th>
     <th>Description</th>
     <th>Price</th>
+    <th>SupplierId</th>
     <th>Supplier</th>
     <th>Ratings</th>
+    <th>Delete</th>
+    <th>Edit</th>
   </tr>
-  <tr *ngFor="let p of products">
-    <td>{{p.name}}</td>
+  <tr *ngFor="let p of products; let i = index">
+    <td>{{i+1}}</td>
+    <td>
+      <span>{{p.id}}</span>
+    </td>
+    <td>
+      <span>
+        {{p.name}}
+      </span>
+      <input type="text" value={{p.name}}>
+    </td>
     <td>{{p.category}}</td>
     <td>{{p.description}}</td>
     <td>{{p.price}}</td>
+    <td>{{p.supplierId}}</td>
     <td>{{p.supplier?.name || "Not loaded.."}}</td>
-    <td>{{p.ratings.length}}</td>
+    <td>
+      <span *ngFor="let item of p.ratings" class="fa fa-star checked"></span>
+    </td>
+    <td>
+      <button (click)="deleteProduct(p.id)" class="btn btn-danger"> Delete </button>
+    </td>
+    <td>
+      <button class="btn btn-success"> Edit </button>
+    </td>
   </tr>
 </table>

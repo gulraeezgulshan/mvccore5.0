@@ -1,5 +1,6 @@
 ﻿using ServerApp.Data;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ServerApp.Models
@@ -15,9 +16,13 @@ namespace ServerApp.Models
         [Column(TypeName = "decimal(8, 2)")]
         public decimal Price { get; set; }
 
-        public Supplier Supplier { get; set; }
+        [Display(Name = "Supplier")]
+        public long SupplierId { get; set; }
+
+        [ForeignKey("SupplierId")]
+        public virtual Supplier Supplier { get; set; }
         
-        public List<Rating> Ratings { get; set; }
+        public virtual List<Rating> Ratings { get; set; }
         
     }
 }

@@ -27,7 +27,7 @@ namespace ServerApp.Web
             string connectionString = Configuration["ConnectionStrings:DefaultConnection"];
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString, b=> b.MigrationsAssembly("ServerApp.Web")));
 
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ServerApp.Web", Version = "v1" });
