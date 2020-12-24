@@ -8,6 +8,10 @@ import { ProductRepository } from '../models/product/product.service';
 })
 
 export class ProductListComponent {
+
+  status: Boolean = false;
+  selectedRow: Number = 0;
+
   constructor(private repo: ProductRepository) {
   }
 
@@ -21,5 +25,10 @@ export class ProductListComponent {
 
   deleteProduct(id: Number) {
     this.repo.delete(id);
+  }
+
+  editProduct(id: Number) {
+    this.selectedRow = id;
+    this.status = true;
   }
 }

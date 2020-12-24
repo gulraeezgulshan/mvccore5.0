@@ -1,12 +1,11 @@
 <table class="table table-sm">
   <tr>
     <th>#</th>
-    <td>Product Id:</td>
+    <th>Product Id</th>
     <th>Name</th>
     <th>Category</th>
     <th>Description</th>
     <th>Price</th>
-    <th>SupplierId</th>
     <th>Supplier</th>
     <th>Ratings</th>
     <th>Delete</th>
@@ -18,15 +17,29 @@
       <span>{{p.id}}</span>
     </td>
     <td>
-      <span>
+      <span *ngIf="!(selectedRow == p.id && status)">
         {{p.name}}
       </span>
-      <input type="text" value={{p.name}}>
+      <input *ngIf="selectedRow == p.id && status" type="text" value={{p.name}}>
     </td>
-    <td>{{p.category}}</td>
-    <td>{{p.description}}</td>
-    <td>{{p.price}}</td>
-    <td>{{p.supplierId}}</td>
+    <td>
+      <span *ngIf="!(selectedRow == p.id && status)">
+        {{p.category}}
+      </span>
+      <input *ngIf="selectedRow == p.id && status" type="text" value={{p.category}}>
+    </td>
+    <td>
+      <span *ngIf="!(selectedRow == p.id && status)">
+        {{p.description}}
+      </span>
+      <input *ngIf="selectedRow == p.id && status" type="text" value={{p.description}}>
+    </td>
+    <td>
+      <span *ngIf="!(selectedRow == p.id && status)">
+        {{p.price}}
+      </span>
+      <input *ngIf="selectedRow == p.id && status" type="text" value={{p.price}}>
+    </td>
     <td>{{p.supplier?.name || "Not loaded.."}}</td>
     <td>
       <span *ngFor="let item of p.ratings" class="fa fa-star checked"></span>
@@ -35,7 +48,7 @@
       <button (click)="deleteProduct(p.id)" class="btn btn-danger"> Delete </button>
     </td>
     <td>
-      <button class="btn btn-success"> Edit </button>
+      <button (click)="editProduct(p.id)" class="btn btn-success"> Edit </button>
     </td>
   </tr>
 </table>
