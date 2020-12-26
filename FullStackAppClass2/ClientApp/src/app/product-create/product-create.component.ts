@@ -67,8 +67,6 @@ export class ProductCreateComponent {
 
   private postProduct(form: NgForm) {
 
-    this.pRepo.postProduct().subscribe(res => { }, err => { });
-
     this.pRepo.postProduct().subscribe(
       res => {
         this.toastr.info("Submitted Succesfully", "Product Create");

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Product } from '../models/product/product.model';
 import { ProductRepository } from '../models/product/product.service';
+import { RatingRepository } from '../models/rating/rating.service';
 
 @Component({
   selector: 'product-list',
@@ -12,7 +13,10 @@ export class ProductListComponent {
 
   selectedProduct: Number;
 
-  constructor(public repo: ProductRepository, private toastr: ToastrService) {
+  constructor(
+    public repo: ProductRepository,
+    private rRepo: RatingRepository,
+    private toastr: ToastrService) {
 
   }
 
@@ -22,6 +26,10 @@ export class ProductListComponent {
 
   populateForm(pd: Product) {
     this.repo.product = Object.assign({}, pd);
+  }
+
+  populateRating(id) {
+    this.rRepo.rating.productId = id
   }
 
   onDelete(id) {

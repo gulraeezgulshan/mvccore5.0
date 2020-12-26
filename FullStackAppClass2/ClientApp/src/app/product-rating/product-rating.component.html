@@ -1,0 +1,16 @@
+<div [hidden]="rRepo.rating.productId==0">
+  <div class="alert alert-info p-1 text-center" role="alert">
+    <h5> Rate Product </h5>
+  </div>
+  <form #form="ngForm" (ngSubmit)="onSubmit(form);" autocomplete="off">
+    <input type="hidden" name="id" [value]="rRepo.rating.productId">
+    <div class="form-group">
+      <label>Stars: </label>
+      <input type="text" class="form-control" [(ngModel)]="rRepo.rating.stars" name="stars" #stars="ngModel">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Rate</button>
+    <button type="button" (click)="form.reset(); rRepo.rating.productId=0" class="btn btn-danger m-2">Cancel
+    </button>
+  </form>
+</div>

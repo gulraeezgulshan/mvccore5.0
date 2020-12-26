@@ -4,6 +4,6 @@ export class Rating {
   constructor(
     public id?: number,
     public stars?: number,
-    public productid?: number,
+    public productId?: number,
     public product?: Product) { }
 }

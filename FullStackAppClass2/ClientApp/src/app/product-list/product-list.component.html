@@ -1,3 +1,6 @@
+<div class="alert alert-primary p-1 text-center" role="alert">
+  <h5> Product Details </h5>
+</div>
 <table class="table table-sm">
   <tr>
     <th>#</th>
@@ -9,6 +12,7 @@
     <th>Ratings</th>
     <th>Delete</th>
     <th>Edit</th>
+    <th>Rate</th>
   </tr>
   <tr (mouseover)="selectedProduct=p.id" *ngFor=" let p of repo.products; let i=index; let odd=odd; let first=first; let
     last=last" [class.bg-info]="getSelected(p)">
@@ -21,6 +25,7 @@
     <td><span *ngFor=" let item of p.ratings" class="fa fa-star checked"></span></td>
     <td><button (click)="onDelete(p.id)" class="btn btn-danger btn-sm"> Delete </button></td>
     <td><button (click)="populateForm(p)" class="btn btn-success btn-sm"> Edit </button></td>
+    <td><button (click)="populateRating(p.id)" class="btn btn-info btn-sm"> Rate </button></td>
   </tr>
 
 </table>
