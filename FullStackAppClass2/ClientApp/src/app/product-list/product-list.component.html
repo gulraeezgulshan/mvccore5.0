@@ -1,7 +1,6 @@
 <table class="table table-sm">
   <tr>
     <th>#</th>
-    <th>Product Id</th>
     <th>Name</th>
     <th>Category</th>
     <th>Description</th>
@@ -11,44 +10,17 @@
     <th>Delete</th>
     <th>Edit</th>
   </tr>
-  <tr *ngFor="let p of products; let i = index">
+  <tr (mouseover)="selectedProduct=p.id" *ngFor=" let p of repo.products; let i=index; let odd=odd; let first=first; let
+    last=last" [class.bg-info]="getSelected(p)">
     <td>{{i+1}}</td>
-    <td>
-      <span>{{p.id}}</span>
-    </td>
-    <td>
-      <span *ngIf="!(selectedRow == p.id && status)">
-        {{p.name}}
-      </span>
-      <input *ngIf="selectedRow == p.id && status" type="text" value={{p.name}}>
-    </td>
-    <td>
-      <span *ngIf="!(selectedRow == p.id && status)">
-        {{p.category}}
-      </span>
-      <input *ngIf="selectedRow == p.id && status" type="text" value={{p.category}}>
-    </td>
-    <td>
-      <span *ngIf="!(selectedRow == p.id && status)">
-        {{p.description}}
-      </span>
-      <input *ngIf="selectedRow == p.id && status" type="text" value={{p.description}}>
-    </td>
-    <td>
-      <span *ngIf="!(selectedRow == p.id && status)">
-        {{p.price}}
-      </span>
-      <input *ngIf="selectedRow == p.id && status" type="text" value={{p.price}}>
-    </td>
-    <td>{{p.supplier?.name || "Not loaded.."}}</td>
-    <td>
-      <span *ngFor="let item of p.ratings" class="fa fa-star checked"></span>
-    </td>
-    <td>
-      <button (click)="deleteProduct(p.id)" class="btn btn-danger"> Delete </button>
-    </td>
-    <td>
-      <button (click)="editProduct(p.id)" class="btn btn-success"> Edit </button>
-    </td>
+    <td>{{p.name}}</td>
+    <td>{{p.category}}</td>
+    <td>{{p.description}}</td>
+    <td> {{p.price}}</td>
+    <td>{{p.supplier?.name}}</td>
+    <td><span *ngFor=" let item of p.ratings" class="fa fa-star checked"></span></td>
+    <td><button (click)="onDelete(p.id)" class="btn btn-danger btn-sm"> Delete </button></td>
+    <td><button (click)="populateForm(p)" class="btn btn-success btn-sm"> Edit </button></td>
   </tr>
+
 </table>

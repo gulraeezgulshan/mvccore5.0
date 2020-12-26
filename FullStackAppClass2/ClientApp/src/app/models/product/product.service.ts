@@ -7,38 +7,30 @@ import { environment } from "src/environments/environment";
 @Injectable()
 export class ProductRepository {
 
-  // Product product = new Product();
+  //Product must be initialized
   product: Product = new Product();
-  productList: Product[] = [];
-  productListAll: Product[] = [];
+  products: Product[];
 
   constructor(private http: HttpClient) {
 
-    //this.getProduct(1);
-    // this.getProducts(true, 'jacket');
-    this.getAllProducts();
   }
 
-  getProduct(id: Number) {
-
-    this.http.get<Product>(environment.apiURL + '/products/rel/' + id)
-      .subscribe(p => this.product = p);
+  getProducts() {
+    this.http.get(environment.apiURL + '/products/rel?related=true')
+      .toPromise()
+      .then(res => this.products = res as Product[]);
   }
 
-  getAllProducts() {
-    this.http.get<Product>(environment.apiURL + '/products/rel?related=true').subscribe(p => this.productListAll = p as Product[]);
+  postProduct() {
+    return this.http.post(environment.apiURL + '/products', this.product);
   }
 
-  getProducts(rel, cat) {
-    this.http.get<Product>(environment.apiURL + '/products/rel?related=' + rel + '&category=' + cat).subscribe(p => this.productList = p as Product[]);
+  putProduct() {
+    return this.http.put(environment.apiURL + '/products/' + this.product.id, this.product);
   }
 
-  postProduct(data: Product) {
-    this.http.post<Product>(environment.apiURL + '/products', data).subscribe(p => this.product = p);
-  }
-
-  delete(id: Number) {
-    this.http.delete<Product>(environment.apiURL + '/products/' + id).subscribe(p => this.product = p);
+  deleteProduct(id: Number) {
+    return this.http.delete(environment.apiURL + '/products/' + id);
   }
 
 

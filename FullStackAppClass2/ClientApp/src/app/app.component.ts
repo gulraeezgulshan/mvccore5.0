@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Product } from './models/product/product.model';
 import { ProductRepository } from './models/product/product.service';
+import { Supplier } from './models/supplier/supplier.model';
+import { SupplierRepository } from './models/supplier/supplier.service';
 
 @Component({
   selector: 'root',
@@ -8,14 +10,6 @@ import { ProductRepository } from './models/product/product.service';
 })
 
 export class AppComponent {
-  constructor(private repo: ProductRepository) {
-  }
+  constructor() { }
 
-  get product(): Product {
-    return this.repo.product;
-  }
-
-  get products(): Product[] {
-    return this.repo.productList;
-  }
 }

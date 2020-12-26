@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { Product } from '../models/product/product.model';
 import { ProductRepository } from '../models/product/product.service';
 import { Supplier } from '../models/supplier/supplier.model';
@@ -11,19 +12,73 @@ import { SupplierRepository } from '../models/supplier/supplier.service';
 })
 
 export class ProductCreateComponent {
-  constructor(private prepo: ProductRepository, private srepo: SupplierRepository) {
+
+  constructor(public pRepo: ProductRepository,
+    private sRepo: SupplierRepository,
+    private toastr: ToastrService) {
   }
 
-  get product(): Product {
-    return this.prepo.product;
+  //Page life-cycle method
+  ngOnInit(): void {
+    this.resetForm();
+  }
+
+  private resetForm() {
+    this.pRepo.product.id = 0;
+    this.pRepo.product.supplierId = 0;
+  }
+
+  get buttonText() {
+    if (this.pRepo.product.id == 0) {
+      return "Create";
+    }
+    else {
+      return "Update";
+    }
   }
 
   get suppliers(): Supplier[] {
-    return this.srepo.suppliersList;
+    return this.sRepo.suppliers;
   }
 
   onSubmit(form: NgForm) {
-    this.prepo.postProduct(form.value);
+    if (this.pRepo.product.id == 0) {
+      this.postProduct(form);
+    }
+    else if (this.pRepo.product.id != 0) {
+      this.putProduct(form);
+      this.resetForm();
+    }
+
   }
 
+  private putProduct(form: NgForm) {
+    this.pRepo.putProduct().subscribe(res => {
+      console.log("Updated");
+      form.reset();
+      this.pRepo.getProducts();
+      this.toastr.success("Updated Succesfully", "Product Update");
+    },
+      err => {
+        this.toastr.error("Oops! Something went wrong...", "Error");
+        console.log(err);
+      });
+  }
+
+  private postProduct(form: NgForm) {
+
+    this.pRepo.postProduct().subscribe(res => { }, err => { });
+
+    this.pRepo.postProduct().subscribe(
+      res => {
+        this.toastr.info("Submitted Succesfully", "Product Create");
+        form.reset();
+        this.pRepo.getProducts();
+      },
+      err => {
+        this.toastr.error("Oops! Something went wrong...", "Error");
+        console.log(err);
+      }
+    );
+  }
 }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { Product } from '../models/product/product.model';
 import { ProductRepository } from '../models/product/product.service';
 
@@ -9,26 +10,36 @@ import { ProductRepository } from '../models/product/product.service';
 
 export class ProductListComponent {
 
-  status: Boolean = false;
-  selectedRow: Number = 0;
+  selectedProduct: Number;
 
-  constructor(private repo: ProductRepository) {
+  constructor(public repo: ProductRepository, private toastr: ToastrService) {
+
   }
 
-  get product(): Product {
-    return this.repo.product;
+  ngOnInit() {
+    this.repo.getProducts();
   }
 
-  get products(): Product[] {
-    return this.repo.productListAll;
+  populateForm(pd: Product) {
+    this.repo.product = Object.assign({}, pd);
   }
 
-  deleteProduct(id: Number) {
-    this.repo.delete(id);
+  onDelete(id) {
+    if (confirm('Are you sure to delete this record ?')) {
+      this.repo.deleteProduct(id)
+        .subscribe(res => {
+          this.repo.getProducts();
+          this.toastr.warning('Deleted successfully', 'Product Delete');
+        },
+          err => {
+            console.log(err);
+          })
+    }
   }
 
-  editProduct(id: Number) {
-    this.selectedRow = id;
-    this.status = true;
+  getSelected(product: Product): boolean {
+    return product.id == this.selectedProduct;
   }
+
+
 }

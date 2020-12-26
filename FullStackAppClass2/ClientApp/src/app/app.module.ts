@@ -10,6 +10,9 @@ import { ProductCreateComponent } from './product-create/product-create.componen
 import { FormsModule } from '@angular/forms';
 import { SupplierRepository } from './models/supplier/supplier.service';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+
 @NgModule({
   declarations: [
     AppComponent, ProductListComponent, ProductCreateComponent
@@ -18,7 +21,9 @@ import { SupplierRepository } from './models/supplier/supplier.service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [ProductRepository, SupplierRepository],
   bootstrap: [AppComponent]

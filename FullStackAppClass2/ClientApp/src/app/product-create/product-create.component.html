@@ -1,47 +1,36 @@
-<form #form="ngForm" (ngSubmit)="onSubmit(form);">
-  <div class="row">
-    <div class="col-md-4 m-t-5 m-b-5">
-      <div class="form-group">
-        <label>Product Name:</label>
-        <input type="text" class="form-control" [(ngModel)]="product.name" name="name" #name="ngModel">
-      </div>
-    </div>
+<form #form="ngForm" (ngSubmit)="onSubmit(form);" autocomplete="off">
+  <input type="hidden" name="id" [value]="pRepo.product.id">
+  <div class="form-group">
+    <label>Name: </label>
+    <input type="text" class="form-control" [(ngModel)]="pRepo.product.name" name="name" #name="ngModel">
   </div>
-  <div class="row">
-    <div class="col-md-4 m-t-5 m-b-5">
-      <div class="form-group">
-        <label>Category:</label>
-        <input type="text" class="form-control" [(ngModel)]="product.category" name="category" #category="ngModel">
-      </div>
-    </div>
+
+  <div class="form-group">
+    <label>Category:</label>
+    <input type="text" class="form-control" [(ngModel)]="pRepo.product.category" name="category" #category="ngModel">
   </div>
-  <div class="row">
-    <div class="col-md-4 m-t-5 m-b-5">
-      <div class="form-group">
-        <label>Description:</label>
-        <input type="text" class="form-control" [(ngModel)]="product.description" name="description"
-          #description="ngModel">
-      </div>
-    </div>
+
+  <div class="form-group">
+    <label>Description:</label>
+    <input type="text" class="form-control" [(ngModel)]="pRepo.product.description" name="description"
+      #description="ngModel">
   </div>
-  <div class="row">
-    <div class="col-md-4 m-t-5 m-b-5">
-      <div class="form-group">
-        <label>Price:</label>
-        <input type="text" class="form-control" [(ngModel)]="product.price" name="price" #price="ngModel">
-      </div>
-    </div>
+
+  <div class="form-group">
+    <label>Price:</label>
+    <input type="text" class="form-control" [(ngModel)]="pRepo.product.price" name="price" #price="ngModel">
   </div>
-  <div class="row">
-    <div class="col-md-4 m-t-5 m-b-5">
-      <div class="form-group">
-        <label>Supplier:</label>
-        <select [(ngModel)]="product.supplierId" class="form-control" name="supplierId" #supplierId="ngModel">
-          <option value=0>--select--</option>
-          <option *ngFor="let item of suppliers" value={{item.id}}>{{item.name}}</option>
-        </select>
-      </div>
-    </div>
+
+
+  <div class="form-group">
+    <label>Supplier:</label>
+    <select [(ngModel)]="pRepo.product.supplierId" class="form-control" name="supplierId" #supplierId="ngModel">
+      <option value=0>--select--</option>
+      <option *ngFor="let item of suppliers" value={{item.id}}>{{item.name}}</option>
+    </select>
   </div>
-  <button type="submit" class="btn btn-primary">Create</button>
+  <button type="submit" class="btn btn-primary">{{buttonText}} </button>
+  <button type="button" (click)="pRepo.product.id=0; form.reset();" [hidden]='buttonText=="Create"'
+    class="btn btn-danger m-2">Cancel
+  </button>
 </form>

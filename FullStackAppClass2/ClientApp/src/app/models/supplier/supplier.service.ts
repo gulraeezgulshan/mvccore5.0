@@ -7,7 +7,7 @@ import { Supplier } from "./supplier.model";
 @Injectable()
 export class SupplierRepository {
 
-  suppliersList: Supplier[] = [];
+  suppliers: Supplier[] = [];
 
   constructor(private http: HttpClient) {
 
@@ -15,7 +15,7 @@ export class SupplierRepository {
   }
 
   getAllSuppliers() {
-    this.http.get<Supplier>(environment.apiURL + '/suppliers').subscribe(s => this.suppliersList = s as Supplier[]);
+    this.http.get<Supplier>(environment.apiURL + '/suppliers').subscribe(s => this.suppliers = s as Supplier[]);
   }
 
 

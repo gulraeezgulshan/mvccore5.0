@@ -54,6 +54,7 @@ namespace ServerApp.Data.EFCore
         public async Task<List<Product>> GetWithRelated(string category, string search, bool related = false)
         {
             IQueryable<Product> query = _context.Products;
+
             if (!string.IsNullOrWhiteSpace(category))
             {
                 string catLower = category.ToLower();
