@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
-import { Product } from '../models/product/product.model';
 import { ProductRepository } from '../models/product/product.service';
 import { Supplier } from '../models/supplier/supplier.model';
 import { SupplierRepository } from '../models/supplier/supplier.service';
@@ -30,10 +30,10 @@ export class ProductCreateComponent {
 
   get buttonText() {
     if (this.pRepo.product.id == 0) {
-      return "Create";
+      return "Create Product";
     }
     else {
-      return "Update";
+      return "Update Product";
     }
   }
 
@@ -79,4 +79,6 @@ export class ProductCreateComponent {
       }
     );
   }
+
+
 }

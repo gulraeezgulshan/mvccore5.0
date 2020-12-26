@@ -24,6 +24,10 @@ export class ProductListComponent {
     this.repo.getProducts();
   }
 
+  counter(i: number) {
+    return new Array(i);
+  }
+
   populateForm(pd: Product) {
     this.repo.product = Object.assign({}, pd);
   }

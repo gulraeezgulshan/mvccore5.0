@@ -31,9 +31,13 @@
       <option value=0>--select--</option>
       <option *ngFor="let item of suppliers" value={{item.id}}>{{item.name}}</option>
     </select>
+
   </div>
-  <button type="submit" class="btn btn-primary">{{buttonText}} </button>
-  <button type="button" (click)="pRepo.product.id=0; form.reset();" [hidden]='buttonText=="Create"'
-    class="btn btn-danger m-2">Cancel
+
+  <button type="submit" class="btn btn-primary btn-sm">{{buttonText}} </button>
+  <button type="button" (click)="pRepo.product.id=0; form.reset();" [hidden]='buttonText=="Create Product"'
+    class="btn btn-danger m-2 btn-sm">Cancel
   </button>
 </form>
+
+<supplier-create></supplier-create>

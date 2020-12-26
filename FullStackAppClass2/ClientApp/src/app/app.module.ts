@@ -14,10 +14,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { ProductRatingComponent } from './product-rating/product-rating.component';
 import { RatingRepository } from './models/rating/rating.service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SupplierCreateComponent } from './supplier-create/supplier-create.component';
 
 @NgModule({
   declarations: [
-    AppComponent, ProductListComponent, ProductCreateComponent, ProductRatingComponent
+    AppComponent, ProductListComponent, ProductCreateComponent, ProductRatingComponent, SupplierCreateComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +27,8 @@ import { RatingRepository } from './models/rating/rating.service';
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    NgbModule
   ],
   providers: [ProductRepository, SupplierRepository, RatingRepository],
   bootstrap: [AppComponent]

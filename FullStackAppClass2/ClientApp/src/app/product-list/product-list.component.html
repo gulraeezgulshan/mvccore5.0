@@ -9,6 +9,7 @@
     <th>Description</th>
     <th>Price</th>
     <th>Supplier</th>
+    <th>Total Ratings</th>
     <th>Ratings</th>
     <th>Delete</th>
     <th>Edit</th>
@@ -22,7 +23,15 @@
     <td>{{p.description}}</td>
     <td> {{p.price}}</td>
     <td>{{p.supplier?.name}}</td>
-    <td><span *ngFor=" let item of p.ratings" class="fa fa-star checked"></span></td>
+    <td class="text-center"><span class="badge badge-pill badge-primary">{{p.ratings?.length}}</span></td>
+    <td>
+      <ul *ngFor=" let p of p.ratings">
+        <li style="display:inline" *ngFor='let s of counter(p.stars)'>
+          <span class="fa fa-star"></span>
+        </li>
+      </ul>
+
+    </td>
     <td><button (click)="onDelete(p.id)" class="btn btn-danger btn-sm"> Delete </button></td>
     <td><button (click)="populateForm(p)" class="btn btn-success btn-sm"> Edit </button></td>
     <td><button (click)="populateRating(p.id)" class="btn btn-info btn-sm"> Rate </button></td>
