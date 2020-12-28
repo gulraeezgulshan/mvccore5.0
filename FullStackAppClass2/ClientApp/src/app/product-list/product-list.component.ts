@@ -12,6 +12,10 @@ import { RatingRepository } from '../models/rating/rating.service';
 export class ProductListComponent {
 
   selectedProduct: Number;
+  taxRate: number = 0;
+  categoryFilter: string;
+  itemCount: number = 3;
+
 
   constructor(
     public repo: ProductRepository,
@@ -53,5 +57,17 @@ export class ProductListComponent {
     return product.id == this.selectedProduct;
   }
 
+  get SumOfPrice() {
+    return this.repo.products.reduce((acc, curr) => acc + curr.price, 0);
+  }
+
+  get AverageOfPrice() {
+    return this.SumOfPrice / this.repo.products.length;
+  }
+
+  getAverageRating(id: number) {
+    let product = this.repo.products.filter((p) => p.id == id) as Product;
+    return product[0].ratings.reduce((acc, curr) => acc + curr.stars, 0) / product[0].ratings.length;
+  }
 
 }

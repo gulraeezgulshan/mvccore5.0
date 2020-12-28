@@ -1,28 +1,45 @@
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+    <h4 class="modal-title" id="modal-basic-title">Add Supplier</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   <div class="modal-body">
-    <form #form="ngForm" autocomplete="off">
+    <form #form="ngForm" (ngSubmit)="onSubmit(form);" novalidate autocomplete="off">
       <div class="form-group">
         <label>Name: </label>
-        <input type="text" class="form-control">
+        <input [(ngModel)]="repo.supplier.name" name="name" #name="ngModel" type="text" class="form-control" required>
+        <ul class="text-danger list-unstyled" *ngIf="name.dirty && name.invalid">
+          <li *ngIf="name.errors.required">
+            You must enter a supplier name
+          </li>
+        </ul>
       </div>
       <div class="form-group">
         <label>City: </label>
-        <input type="text" class="form-control">
+        <input [(ngModel)]="repo.supplier.city" name="city" #city="ngModel" type="text" class="form-control" required>
+        <ul class="text-danger list-unstyled" *ngIf="city.dirty && city.invalid">
+          <li *ngIf="city.errors.required">
+            You must enter a city
+          </li>
+        </ul>
       </div>
       <div class="form-group">
         <label>State: </label>
-        <input type="text" class="form-control">
+        <input [(ngModel)]="repo.supplier.state" name="state" #state="ngModel" type="text" class="form-control"
+          required>
+        <ul class="text-danger list-unstyled" *ngIf="state.dirty && state.invalid">
+          <li *ngIf="state.errors.required">
+            You must enter a state
+          </li>
+        </ul>
       </div>
     </form>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-dark btn-sm" (click)="modal.close('Save click')">Save</button>
+    <button type="submit" [disabled]="!form.valid" class="btn btn-dark btn-sm"
+      (click)="form.ngSubmit.emit(); modal.close('Save click')">Save</button>
   </div>
 </ng-template>
 

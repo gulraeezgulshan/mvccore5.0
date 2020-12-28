@@ -1,40 +1,89 @@
 <div class="alert alert-primary p-1 text-center" role="alert">
   <h5> Creat Products </h5>
 </div>
-<form #form="ngForm" (ngSubmit)="onSubmit(form);" autocomplete="off">
+<form novalidate #form="ngForm" (ngSubmit)="onSubmit(form);" autocomplete="off">
   <input type="hidden" name="id" [value]="pRepo.product.id">
   <div class="form-group">
     <label>Name: </label>
-    <input type="text" class="form-control" [(ngModel)]="pRepo.product.name" name="name" #name="ngModel">
+    <input type="text" class="form-control" [(ngModel)]="pRepo.product.name" name="name" #name="ngModel" required
+      pattern="^[A-Za-z ]+$" minlength="2">
+    <ul class="text-danger list-unstyled" *ngIf="name.dirty && name.invalid">
+      <li *ngIf="name.errors.required">
+        You must enter a product name
+      </li>
+      <li *ngIf="name.errors.pattern">
+        Product name can only contain letters and spaces
+      </li>
+      <li *ngIf="name.errors.minlength">
+        Product name must be at least
+        {{name.errors.minlength.requiredLength}} characters
+      </li>
+    </ul>
   </div>
 
   <div class="form-group">
     <label>Category:</label>
-    <input type="text" class="form-control" [(ngModel)]="pRepo.product.category" name="category" #category="ngModel">
+    <input type="text" class="form-control" [(ngModel)]="pRepo.product.category" name="category" #category="ngModel"
+      required pattern="^[A-Za-z ]+$" minlength="2">
+    <ul class="text-danger list-unstyled" *ngIf="category.dirty && category.invalid">
+      <li *ngIf="category.errors.required">
+        You must enter a category name
+      </li>
+      <li *ngIf="category.errors.pattern">
+        Category can only contain letters and spaces
+      </li>
+      <li *ngIf="category.errors.minlength">
+        Category must be at least
+        {{category.errors.minlength.requiredLength}} characters
+      </li>
+    </ul>
   </div>
 
   <div class="form-group">
     <label>Description:</label>
     <input type="text" class="form-control" [(ngModel)]="pRepo.product.description" name="description"
-      #description="ngModel">
+      #description="ngModel" required minlength="5">
+    <ul class="text-danger list-unstyled" *ngIf="description.dirty && description.invalid">
+      <li *ngIf="description.errors.required">
+        You must enter a description
+      </li>
+      <li *ngIf="description.errors.minlength">
+        Description must be at least
+        {{description.errors.minlength.requiredLength}} characters
+      </li>
+    </ul>
   </div>
 
   <div class="form-group">
     <label>Price:</label>
-    <input type="text" class="form-control" [(ngModel)]="pRepo.product.price" name="price" #price="ngModel">
+    <input type="text" class="form-control" [(ngModel)]="pRepo.product.price" name="price" #price="ngModel" required
+      pattern="^-?(0|[1-9]\d*)?$">
+    <ul class="text-danger list-unstyled" *ngIf="price.dirty && price.invalid">
+      <li *ngIf="price.errors.required">
+        You must enter a price
+      </li>
+      <li *ngIf="price.errors.pattern">
+        Price can only contain numbers
+      </li>
+    </ul>
   </div>
 
 
   <div class="form-group">
     <label>Supplier:</label>
-    <select [(ngModel)]="pRepo.product.supplierId" class="form-control" name="supplierId" #supplierId="ngModel">
+    <select [(ngModel)]="pRepo.product.supplierId" class="form-control" name="supplierId" #supplierId="ngModel"
+      required>
       <option value=0>--select--</option>
-      <option *ngFor="let item of suppliers" value={{item.id}}>{{item.name}}</option>
+      <option *ngFor="let item of sRepo.suppliers" value={{item.id}}>{{item.name}}</option>
     </select>
-
+    <ul class="text-danger list-unstyled" *ngIf="supplierId.dirty && supplierId.invalid">
+      <li *ngIf="supplierId.errors.required">
+        You must select a supplier
+      </li>
+    </ul>
   </div>
 
-  <button type="submit" class="btn btn-primary btn-sm">{{buttonText}} </button>
+  <button [disabled]="!form.valid" type="submit" class="btn btn-primary btn-sm">{{buttonText}} </button>
   <button type="button" (click)="pRepo.product.id=0; form.reset();" [hidden]='buttonText=="Create Product"'
     class="btn btn-danger m-2 btn-sm">Cancel
   </button>

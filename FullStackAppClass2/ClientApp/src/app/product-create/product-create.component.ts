@@ -8,7 +8,8 @@ import { SupplierRepository } from '../models/supplier/supplier.service';
 
 @Component({
   selector: 'product-create',
-  templateUrl: './product-create.component.html'
+  templateUrl: './product-create.component.html',
+  styleUrls: ['./product-create.component.css']
 })
 
 export class ProductCreateComponent {
@@ -24,6 +25,7 @@ export class ProductCreateComponent {
   }
 
   private resetForm() {
+    this.sRepo.getSuppliers();
     this.pRepo.product.id = 0;
     this.pRepo.product.supplierId = 0;
   }
@@ -37,18 +39,17 @@ export class ProductCreateComponent {
     }
   }
 
-  get suppliers(): Supplier[] {
-    return this.sRepo.suppliers;
-  }
-
   onSubmit(form: NgForm) {
-    if (this.pRepo.product.id == 0) {
-      this.postProduct(form);
+    if (form.valid) {
+      if (this.pRepo.product.id == 0) {
+        this.postProduct(form);
+      }
+      else if (this.pRepo.product.id != 0) {
+        this.putProduct(form);
+        this.resetForm();
+      }
     }
-    else if (this.pRepo.product.id != 0) {
-      this.putProduct(form);
-      this.resetForm();
-    }
+
 
   }
 

@@ -2,7 +2,7 @@
   <div class="alert alert-info p-1 text-center" role="alert">
     <h5> Rate Product </h5>
   </div>
-  <form #form="ngForm" (ngSubmit)="onSubmit(form);" autocomplete="off">
+  <form novalidate #form="ngForm" (ngSubmit)="onSubmit(form);" autocomplete="off">
     <input type="hidden" name="id" [value]="rRepo.rating.productId">
     <div class="form-group">
       <label>Stars: </label>

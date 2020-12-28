@@ -4,16 +4,23 @@ import { RatingRepository } from '../models/rating/rating.service';
 import { ToastrService } from 'ngx-toastr';
 import { ProductRepository } from '../models/product/product.service';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { SupplierRepository } from '../models/supplier/supplier.service';
+import { Supplier } from '../models/supplier/supplier.model';
 
 @Component({
   selector: 'supplier-create',
-  templateUrl: './supplier-create.component.html'
+  templateUrl: './supplier-create.component.html',
+  styleUrls: ['./supplier-create.component.css']
 })
 
 export class SupplierCreateComponent {
 
 
-  constructor(private modalService: NgbModal) {
+
+  constructor(
+    private modalService: NgbModal,
+    public repo: SupplierRepository,
+    private toastr: ToastrService) {
 
   }
 
@@ -22,8 +29,21 @@ export class SupplierCreateComponent {
   }
 
   onSubmit(form: NgForm) {
-  }
+    if (form.valid) {
+      this.repo.postSupplier().subscribe(
+        res => {
+          //console.log(form.value)
+          this.toastr.info("Submitted Succesfully", "Supplier Create");
+          form.reset();
+          this.repo.getSuppliers();
+        },
+        err => {
+          this.toastr.error("Oops! Something went wrong...", "Error");
+        }
+      );
+    }
 
+  }
 
   closeResult = '';
 

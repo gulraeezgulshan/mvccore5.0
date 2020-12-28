@@ -16,10 +16,18 @@ import { ProductRatingComponent } from './product-rating/product-rating.componen
 import { RatingRepository } from './models/rating/rating.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SupplierCreateComponent } from './supplier-create/supplier-create.component';
+import { AddTaxPipe } from './pipes/addTax.pipe';
+import { CategoryFilterPipe } from './pipes/categoryFilter.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent, ProductListComponent, ProductCreateComponent, ProductRatingComponent, SupplierCreateComponent
+    AppComponent,
+    ProductListComponent,
+    ProductCreateComponent,
+    ProductRatingComponent,
+    SupplierCreateComponent,
+    AddTaxPipe,
+    CategoryFilterPipe
   ],
   imports: [
     BrowserModule,
@@ -28,7 +36,8 @@ import { SupplierCreateComponent } from './supplier-create/supplier-create.compo
     FormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    NgbModule
+    NgbModule,
+
   ],
   providers: [ProductRepository, SupplierRepository, RatingRepository],
   bootstrap: [AppComponent]

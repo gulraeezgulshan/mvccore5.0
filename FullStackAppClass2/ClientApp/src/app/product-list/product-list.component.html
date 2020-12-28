@@ -1,5 +1,42 @@
 <div class="alert alert-primary p-1 text-center" role="alert">
+  <h5> Summary </h5>
+</div>
+<ul>
+  <li>Total Products: {{repo.products.length}} </li>
+  <li>Sum of all Products Price: {{SumOfPrice | number :
+    '1.2-2'}} </li>
+  <li>Average of all Products Price: {{AverageOfPrice | number :
+    '1.2-2'}}</li>
+</ul>
+
+<div class="alert alert-primary p-1 text-center" role="alert">
   <h5> Product Details </h5>
+</div>
+<div>
+  <label>Apply Tax Rate: </label>
+  <select [value]="taxRate || 0" (change)="taxRate=$event.target.value">
+    <option value="0">None</option>
+    <option value="10">10%</option>
+    <option value="20">20%</option>
+    <option value="50">50%</option>
+  </select>
+</div>
+<div>
+  <label>Category Filter:</label>
+  <select [(ngModel)]="categoryFilter">
+    <option selected>All</option>
+    <option>Shoe</option>
+    <option>Bag</option>
+    <option>Jacket</option>
+  </select>
+</div>
+<div>
+  <label>Number of items:</label>
+  <select [value]="itemCount || 1" (change)="itemCount=$event.target.value">
+    <option *ngFor="let item of repo.products; let i = index" [value]="i + 1" [selected]="(i + 1) === itemCount">
+      {{i + 1}}
+    </option>
+  </select>
 </div>
 <table class="table table-sm">
   <tr>
@@ -10,31 +47,36 @@
     <th>Price</th>
     <th>Supplier</th>
     <th>Total Ratings</th>
+    <th>Avg Ratings</th>
     <th>Ratings</th>
-    <th>Delete</th>
-    <th>Edit</th>
-    <th>Rate</th>
+    <th></th>
+    <th></th>
+    <th></th>
   </tr>
-  <tr (mouseover)="selectedProduct=p.id" *ngFor=" let p of repo.products; let i=index; let odd=odd; let first=first; let
-    last=last" [class.bg-info]="getSelected(p)">
+  <tr (mouseover)="selectedProduct=p.id" *ngFor=" let p of repo.products | filter:categoryFilter | slice:0:(itemCount || 1); let i=index; let odd=odd; let first=first; let
+    last=last" [class.bg-info]=" getSelected(p)">
     <td>{{i+1}}</td>
-    <td>{{p.name}}</td>
+    <td>{{p.name | uppercase}}</td>
     <td>{{p.category}}</td>
-    <td>{{p.description}}</td>
-    <td> {{p.price}}</td>
-    <td>{{p.supplier?.name}}</td>
+    <td>{{p.description | titlecase}}</td>
+    <td> {{p.price | addTax:(taxRate || 0) | currency:"PKR ":"symbol"}}</td>
+    <td>{{p.supplier?.name | titlecase}}</td>
     <td class="text-center"><span class="badge badge-pill badge-primary">{{p.ratings?.length}}</span></td>
+    <td class="text-center"><span class="badge badge-pill badge-danger">{{getAverageRating(p.id) | number :
+        '1.2-2'}}</span></td>
     <td>
-      <ul *ngFor=" let p of p.ratings">
+      <ul class="p-0" *ngFor=" let p of p.ratings">
         <li style="display:inline" *ngFor='let s of counter(p.stars)'>
           <span class="fa fa-star"></span>
         </li>
       </ul>
 
     </td>
-    <td><button (click)="onDelete(p.id)" class="btn btn-danger btn-sm"> Delete </button></td>
-    <td><button (click)="populateForm(p)" class="btn btn-success btn-sm"> Edit </button></td>
-    <td><button (click)="populateRating(p.id)" class="btn btn-info btn-sm"> Rate </button></td>
+    <td><button (click)="onDelete(p.id)" class="p-0 btn btn-danger btn-sm"><i class="fa fa-trash-o"></i> </button>
+    </td>
+    <td><button (click)="populateForm(p)" class="p-0 btn btn-success btn-sm"> <i class="fa fa-edit"></i> </button></td>
+    <td><button (click)="populateRating(p.id)" class="p-0 btn btn-info btn-sm"> <i class="fa fa-star"></i> </button>
+    </td>
   </tr>
 
 </table>

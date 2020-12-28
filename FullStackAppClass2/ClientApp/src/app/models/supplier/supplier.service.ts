@@ -8,14 +8,22 @@ import { Supplier } from "./supplier.model";
 export class SupplierRepository {
 
   suppliers: Supplier[] = [];
+  supplier: Supplier = new Supplier();
 
   constructor(private http: HttpClient) {
 
-    this.getAllSuppliers();
+    // this.getAllSuppliers();
   }
 
-  getAllSuppliers() {
-    this.http.get<Supplier>(environment.apiURL + '/suppliers').subscribe(s => this.suppliers = s as Supplier[]);
+  getSuppliers() {
+
+    this.http.get(environment.apiURL + '/suppliers')
+      .toPromise()
+      .then(res => this.suppliers = res as Supplier[]);
+  }
+
+  postSupplier() {
+    return this.http.post(environment.apiURL + '/suppliers', this.supplier);
   }
 
 
