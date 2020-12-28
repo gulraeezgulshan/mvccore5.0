@@ -9,7 +9,7 @@ export class ProductRepository {
 
   //Product must be initialized
   product: Product = new Product();
-  products: Product[];
+  products: Product[] = [];
 
   constructor(private http: HttpClient) {
 
