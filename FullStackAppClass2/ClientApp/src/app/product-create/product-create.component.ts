@@ -15,7 +15,7 @@ import { SupplierRepository } from '../models/supplier/supplier.service';
 export class ProductCreateComponent {
 
   constructor(public pRepo: ProductRepository,
-    private sRepo: SupplierRepository,
+    public sRepo: SupplierRepository,
     private toastr: ToastrService) {
   }
 
