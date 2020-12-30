@@ -3,15 +3,14 @@
 </div>
 <ul>
   <li>Total Products: {{repo.products.length}} </li>
-  <li>Sum of all Products Price: {{SumOfPrice | number :
-    '1.2-2'}} </li>
-  <li>Average of all Products Price: {{AverageOfPrice | number :
-    '1.2-2'}}</li>
+  <li>Sum of all Products Price: {{SumOfPrice | number:'1.2-2'}} </li>
+  <li>Average of all Products Price: {{AverageOfPrice | number :'1.2-2'}}</li>
 </ul>
 
 <div class="alert alert-primary p-1 text-center" role="alert">
   <h5> Product Details </h5>
 </div>
+
 <div>
   <label>Apply Tax Rate: </label>
   <select [value]="taxRate || 0" (change)="taxRate=$event.target.value">
@@ -21,6 +20,7 @@
     <option value="50">50%</option>
   </select>
 </div>
+
 <div>
   <label>Category Filter:</label>
   <select [(ngModel)]="categoryFilter">
@@ -59,7 +59,9 @@
     <td>{{p.name | uppercase}}</td>
     <td>{{p.category}}</td>
     <td>{{p.description | titlecase}}</td>
+
     <td> {{p.price | addTax:(taxRate || 0) | currency:"PKR ":"symbol"}}</td>
+
     <td>{{p.supplier?.name | titlecase}}</td>
     <td class="text-center"><span class="badge badge-pill badge-primary">{{p.ratings?.length}}</span></td>
     <td class="text-center"><span class="badge badge-pill badge-danger">{{getAverageRating(p.id) | number :

@@ -14,6 +14,7 @@ import { SupplierRepository } from '../models/supplier/supplier.service';
 
 export class ProductCreateComponent {
 
+
   constructor(public pRepo: ProductRepository,
     public sRepo: SupplierRepository,
     private toastr: ToastrService) {
@@ -54,8 +55,8 @@ export class ProductCreateComponent {
   }
 
   private putProduct(form: NgForm) {
+
     this.pRepo.putProduct().subscribe(res => {
-      console.log("Updated");
       form.reset();
       this.pRepo.getProducts();
       this.toastr.success("Updated Succesfully", "Product Update");

@@ -1,0 +1,2 @@
+dotnet ef migrations add IdentityInitialCreate --context AuthenticationContext --project .\ServerApp.Web 
+dotnet ef database update --context AuthenticationContext --project .\ServerApp.Web 

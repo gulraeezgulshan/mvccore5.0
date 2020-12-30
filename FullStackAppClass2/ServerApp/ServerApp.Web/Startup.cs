@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -7,7 +8,9 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using ServerApp.Data.EFCore;
 using ServerApp.Models;
+using ServerApp.Models.Models;
 using ServerApp.Repositories.Data;
+using ServerApp.Repositories.Data.EFCore;
 using System;
 
 namespace ServerApp.Web
@@ -26,6 +29,20 @@ namespace ServerApp.Web
         {
             string connectionString = Configuration["ConnectionStrings:DefaultConnection"];
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString, b=> b.MigrationsAssembly("ServerApp.Web")));
+            services.AddDbContext<AuthenticationContext>(options => options.UseSqlServer(connectionString, b => b.MigrationsAssembly("ServerApp.Web")));
+
+            services.AddDefaultIdentity<ApplicationUser>()
+                .AddEntityFrameworkStores<AuthenticationContext>();
+
+            services.Configure<IdentityOptions>(options => 
+            {
+                options.Password.RequireDigit = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequiredLength = 4;
+
+                });
 
             services.AddControllers().AddNewtonsoftJson();
             services.AddSwaggerGen(c =>
@@ -49,7 +66,7 @@ namespace ServerApp.Web
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ServerApp.Web v1"));
             }
-
+            app.UseAuthentication();
             app.UseHttpsRedirection();
 
             app.UseCors(options => options

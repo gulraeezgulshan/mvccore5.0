@@ -57,8 +57,16 @@ export class ProductListComponent {
     return product.id == this.selectedProduct;
   }
 
+  /*  function abc(acc, curr){
+     return acc + curr.price
+   } */
   get SumOfPrice() {
-    return this.repo.products.reduce((acc, curr) => acc + curr.price, 0);
+
+    //acc: accumulator
+    //curr: current
+    // fat arrow (lamda arrow) =>
+    //callback function
+    return this.repo.products.reduce((pre, curr) => pre + curr.price, 0);
   }
 
   get AverageOfPrice() {

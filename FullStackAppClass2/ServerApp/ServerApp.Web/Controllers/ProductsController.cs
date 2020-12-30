@@ -3,7 +3,6 @@ using ServerApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using ServerApp.Models.Models.BindingTargets;
 
 namespace ServerApp.Controllers
 {

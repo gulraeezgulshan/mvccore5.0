@@ -10,9 +10,15 @@ export class AddTaxPipe {
 
   transform(value: any, rate?: any): number {
 
-    let valueNumber = Number.parseFloat(value);
+    //value = 300
+    //rate = 10
 
+    let valueNumber = Number.parseFloat(value);
+    //Ternary Expression
+    //Condition ? true : false
     let rateNumber = rate == undefined ? this.defaultRate : Number.parseInt(rate);
+
     return valueNumber + (valueNumber * (rateNumber / 100));
+
   }
 }

@@ -1,0 +1,50 @@
+<div class="alert alert-primary p-1 text-center" role="alert">
+  <h5> Add User </h5>
+</div>
+<form [formGroup]="repo.formModel" autocomplete="off" (submit)="onSubmit()">
+  <div class="form-group">
+    <label>Username</label>
+    <input class="form-control" formControlName="UserName">
+    <label class="text-danger"
+      *ngIf="repo.formModel.get('UserName').touched && repo.formModel.get('UserName').errors?.required">This field
+      is mandatory.</label>
+  </div>
+  <div class="form-group">
+    <label>Email</label>
+    <input class="form-control" formControlName="Email">
+    <label class="text-danger"
+      *ngIf="repo.formModel.get('Email').touched && repo.formModel.get('Email').errors?.email">Invalid email
+      address.</label>
+  </div>
+  <div class="form-group">
+    <label>Full Name</label>
+    <input class="form-control" formControlName="FullName">
+  </div>
+  <div formGroupName="Passwords">
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" class="form-control" formControlName="Password">
+      <label class="text-danger"
+        *ngIf="repo.formModel.get('Passwords.Password').touched && repo.formModel.get('Passwords.Password').errors?.required">This
+        field is mandatory.</label>
+      <label class="text-danger"
+        *ngIf="repo.formModel.get('Passwords.Password').touched && repo.formModel.get('Passwords.Password').errors?.minlength">Minimum
+        4 characters required.</label>
+    </div>
+    <div class="form-group">
+      <label>Confirm Password</label>
+      <input type="password" class="form-control" formControlName="ConfirmPassword">
+      <label class="text-danger"
+        *ngIf="repo.formModel.get('Passwords.ConfirmPassword').touched && repo.formModel.get('Passwords.ConfirmPassword').errors?.required">This
+        field is mandatory.</label>
+      <label class="text-danger"
+        *ngIf="repo.formModel.get('Passwords.ConfirmPassword').touched && repo.formModel.get('Passwords.ConfirmPassword').errors?.passwordMismatch">Confirm
+        Password does not match.</label>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-8 offset-md-2">
+      <button type="submit" class="btn btn-success btn-block" [disabled]="!repo.formModel.valid">Sign Up</button>
+    </div>
+  </div>
+</form>

@@ -6,4 +6,3 @@ F:\lectures\mvccore5.0\FullStackAppClass2\ServerApp\ServerApp.Models\obj\Debug\n
 F:\lectures\mvccore5.0\FullStackAppClass2\ServerApp\ServerApp.Models\obj\Debug\netcoreapp3.1\ServerApp.Models.csproj.CoreCompileInputs.cache
 F:\lectures\mvccore5.0\FullStackAppClass2\ServerApp\ServerApp.Models\obj\Debug\netcoreapp3.1\ServerApp.Models.dll
 F:\lectures\mvccore5.0\FullStackAppClass2\ServerApp\ServerApp.Models\obj\Debug\netcoreapp3.1\ServerApp.Models.pdb
-F:\lectures\mvccore5.0\FullStackAppClass2\ServerApp\ServerApp.Models\obj\Debug\netcoreapp3.1\ServerApp.Models.csprojAssemblyReference.cache
