@@ -38,4 +38,12 @@ export class UserRepository {
     };
     return this.http.post(environment.apiURL + '/ApplicationUser/Register', body);
   }
+
+  login(formData) {
+    return this.http.post(environment.apiURL + '/ApplicationUser/Login', formData);
+  }
+
+  getUserProfile() {
+    return this.http.get(environment.apiURL + '/UserProfile');
+  }
 }

@@ -20,6 +20,11 @@ import { AddTaxPipe } from './pipes/addTax.pipe';
 import { CategoryFilterPipe } from './pipes/categoryFilter.pipe';
 import { UserRepository } from './models/user/user.service';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
+import { UserLoginComponent } from './user-login/user-login.component';
+import { HomeComponent } from './home/home.component';
+import { EmployeeCreateComponent } from './employee-create/employee-create.component';
+import { DepartmentRepository } from './models/employee/department.service';
+import { EmployeeRepository } from './models/employee/employee.service';
 
 @NgModule({
   declarations: [
@@ -29,6 +34,9 @@ import { UserRegistrationComponent } from './user-registration/user-registration
     ProductRatingComponent,
     SupplierCreateComponent,
     UserRegistrationComponent,
+    UserLoginComponent,
+    EmployeeCreateComponent,
+    HomeComponent,
     AddTaxPipe,
     CategoryFilterPipe
   ],
@@ -43,7 +51,13 @@ import { UserRegistrationComponent } from './user-registration/user-registration
     NgbModule,
 
   ],
-  providers: [ProductRepository, SupplierRepository, RatingRepository, UserRepository],
+  providers: [
+    ProductRepository,
+    SupplierRepository,
+    RatingRepository,
+    UserRepository,
+    DepartmentRepository,
+    EmployeeRepository],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

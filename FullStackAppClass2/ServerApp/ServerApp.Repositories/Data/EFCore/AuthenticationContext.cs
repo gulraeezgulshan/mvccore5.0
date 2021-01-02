@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using ServerApp.Models.Models;
+using ServerApp.Models;
 
 namespace ServerApp.Repositories.Data.EFCore
 {

@@ -74,10 +74,17 @@
       </ul>
 
     </td>
-    <td><button (click)="onDelete(p.id)" class="p-0 btn btn-danger btn-sm"><i class="fa fa-trash-o"></i> </button>
+    <td><button (click)="onDelete(p.id)" style="background-color:transparent; border-color:transparent"
+        class="p-0 btn btn-light btn-sm"><i class="fa fa-trash-o"></i>
+      </button>
     </td>
-    <td><button (click)="populateForm(p)" class="p-0 btn btn-success btn-sm"> <i class="fa fa-edit"></i> </button></td>
-    <td><button (click)="populateRating(p.id)" class="p-0 btn btn-info btn-sm"> <i class="fa fa-star"></i> </button>
+    <td><button (click)="populateForm(p)" style="background-color:transparent; border-color:transparent"
+        class="p-0 btn  btn-light btn-sm"> <i class="fa fa-edit"></i>
+      </button></td>
+    <td><button (click)="populateRating(p.id)" style="background-color:transparent ; border-color:transparent"
+        class="p-0 btn  btn-light btn-sm">
+        <i class="fa fa-star"></i>
+      </button>
     </td>
   </tr>
 

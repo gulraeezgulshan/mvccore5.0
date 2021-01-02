@@ -4,8 +4,7 @@ import { UserRepository } from '../models/user/user.service';
 
 @Component({
   selector: 'user-registration',
-  templateUrl: './user-registration.component.html',
-  styles: []
+  templateUrl: './user-registration.component.html'
 })
 export class UserRegistrationComponent implements OnInit {
 
@@ -27,7 +26,6 @@ export class UserRegistrationComponent implements OnInit {
               case 'DuplicateUserName':
                 this.toastr.error('Username is already taken', 'Registration failed.');
                 break;
-
               default:
                 this.toastr.error(element.description, 'Registration failed.');
                 break;

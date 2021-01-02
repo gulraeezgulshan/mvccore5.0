@@ -229,6 +229,12 @@ namespace ServerApp.Web.Migrations.Authentication
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
+                    b.Property<string>("CNIC")
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<DateTime>("DOB")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("FullName")
                         .HasColumnType("nvarchar(150)");
 
